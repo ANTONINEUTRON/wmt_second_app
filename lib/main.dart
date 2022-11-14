@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'WTFellowship Second App',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey.shade100,
         primarySwatch: Colors.blue,
@@ -28,24 +28,67 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Profile()
-        ]
+      body: Container(
+        padding: EdgeInsets.fromLTRB(15, 30, 15, 20),
+        child: ListView(
+            children: [
+              Profile(),
+              Padding(padding: EdgeInsets.all(10)),
+              Search()
+            ]
+        ),
       )
     );
   }
 }
 
-class Profile extends StatelessWidget{
+class Search extends StatelessWidget {
+  const Search({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(15, 30, 15, 20),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black87),
+      ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          Padding(
+            padding: EdgeInsets.all(10),
+            child: Icon(
+              Icons.search_sharp,
+              size:20,
+              color: Colors.grey,
+            ),
+          ),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                  labelText:"Search"
+              ),
+            )
+          ),
+          IconButton(
+              onPressed: (){},
+              icon: Icon(Icons.settings),
+              color: Colors.green.shade300,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+class Profile extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -60,13 +103,13 @@ class Profile extends StatelessWidget{
               )
             ],
           ),
-          Icon(
-            Icons.account_box_outlined,
-            size: 50,
-            color: Colors.blue.shade900,
-          )
-        ],
-      ),
+        ),
+        Icon(
+          Icons.account_box_outlined,
+          size: 50,
+          color: Colors.blue.shade900,
+        )
+      ],
     );
   }
 
