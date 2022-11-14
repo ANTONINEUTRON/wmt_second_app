@@ -34,10 +34,44 @@ class HomePage extends StatelessWidget {
             children: [
               Profile(),
               Padding(padding: EdgeInsets.all(10)),
-              Search()
+              Search(),
+              Padding(padding: EdgeInsets.all(10)),
+              Statistics()
             ]
         ),
       )
+    );
+  }
+}
+
+class Statistics extends StatelessWidget {
+  const Statistics({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+                "Statistics",
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            Text(
+                "MONTH",
+              style: Theme.of(context).textTheme.labelLarge,
+            )
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Security Attacks"),
+            Text("68%")
+          ],
+        )
+      ],
     );
   }
 }
@@ -52,6 +86,7 @@ class Search extends StatelessWidget {
         border: Border.all(color: Colors.black87),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: EdgeInsets.all(10),
@@ -68,17 +103,32 @@ class Search extends StatelessWidget {
               ),
             )
           ),
-          IconButton(
+          Container(
+            height: 60,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.green.shade800,
+                  Colors.green.shade600,
+                  Colors.green.shade300,
+                  Colors.amberAccent.shade200,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter
+              ),
+              border: Border.all(color: Colors.black87)
+            ),
+            child: IconButton(
               onPressed: (){},
-              icon: Icon(Icons.settings),
-              color: Colors.green.shade300,
+              icon: Icon(Icons.menu_rounded),
+              color: Colors.black,
+            ),
           )
         ],
       ),
     );
   }
 }
-
 
 class Profile extends StatelessWidget{
   @override
