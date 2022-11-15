@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'WTFellowship Second App',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey.shade100,
+        scaffoldBackgroundColor: Colors.grey.shade300,
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
@@ -64,13 +64,139 @@ class Statistics extends StatelessWidget {
             )
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Security Attacks"),
-            Text("68%")
-          ],
-        )
+
+        Container(
+          padding: EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    child: Icon(
+                        Icons.key,
+                        color: Colors.white
+                    ),
+                    height: 50,
+                    width: 50,
+                    color: Colors.black,
+                  ),
+                  Container(width: 10,),
+                  Text(
+                    "Security Attacks",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 19
+                    ),
+                  )
+                ],
+              ),
+
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_upward,
+                    color: Colors.green.shade800,
+                  ),
+                  Text(
+                      "68%",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Colors.green.shade800
+                      )
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+
+        Container(
+          padding: EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    child: Icon(
+                        Icons.fingerprint_sharp,
+                        color: Colors.white
+                    ),
+                    height: 50,
+                    width: 50,
+                    color: Colors.black,
+                  ),
+                  Container(width: 10,),
+                  Text(
+                    "Protected Bunches",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 19
+                    ),
+                  )
+                ],
+              ),
+
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_downward,
+                    color: Colors.red.shade800,
+                  ),
+                  Text(
+                      "38%",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18,
+                          color: Colors.red.shade800
+                      )
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+
+        Container(
+          padding: EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    child: Icon(
+                        Icons.sports_basketball_outlined,
+                        color: Colors.white
+                    ),
+                    height: 50,
+                    width: 50,
+                    color: Colors.black,
+                  ),
+                  Container(width: 10,),
+                  const Text(
+                    "Runtime Cost",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 19
+                    ),
+                  )
+                ],
+              ),
+
+              const Text(
+                  "\$6236",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      color: Colors.black
+                  )
+              )
+            ],
+          ),
+        ),
       ],
     );
   }
