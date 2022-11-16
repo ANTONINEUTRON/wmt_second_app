@@ -28,18 +28,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.fromLTRB(15, 30, 15, 20),
-        child: ListView(
-            children: [
-              Profile(),
-              Padding(padding: EdgeInsets.all(10)),
-              Search(),
-              Padding(padding: EdgeInsets.all(10)),
-              Statistics()
-            ]
-        ),
-      )
+        body: Container(
+          child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Profile(),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Search(),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Statistics(),
+                ),
+                Padding(padding: EdgeInsets.all(15)),
+                CompanyGoals()
+              ]
+          ),
+        )
     );
   }
 }
@@ -55,11 +65,11 @@ class Statistics extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-                "Statistics",
+              "Statistics",
               style: Theme.of(context).textTheme.headline5,
             ),
             Text(
-                "MONTH",
+              "MONTH",
               style: Theme.of(context).textTheme.labelLarge,
             )
           ],
@@ -223,26 +233,26 @@ class Search extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                  labelText:"Search"
-              ),
-            )
+              child: TextField(
+                decoration: InputDecoration(
+                    labelText:"Search"
+                ),
+              )
           ),
           Container(
             height: 60,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.green.shade800,
-                  Colors.green.shade600,
-                  Colors.green.shade300,
-                  Colors.amberAccent.shade200,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter
-              ),
-              border: Border.all(color: Colors.black87)
+                gradient: LinearGradient(
+                    colors: [
+                      Colors.green.shade800,
+                      Colors.green.shade600,
+                      Colors.green.shade300,
+                      Colors.amberAccent.shade200,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter
+                ),
+                border: Border.all(color: Colors.black87)
             ),
             child: IconButton(
               onPressed: (){},
@@ -280,10 +290,10 @@ class Profile extends StatelessWidget{
             ],
           ),
         ),
-        Icon(
-          Icons.account_box_outlined,
-          size: 50,
-          color: Colors.blue.shade900,
+        Image.asset(
+            "images/profile.jpg",
+          width: 50,
+          height: 50,
         )
       ],
     );
@@ -291,3 +301,85 @@ class Profile extends StatelessWidget{
 
 }
 
+class CompanyGoals extends StatelessWidget {
+  const CompanyGoals({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.all(10),
+        color: Colors.white,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                    "Company Goals",
+                  style: Theme.of(context).textTheme.headline5
+                ),
+                Text(
+                    "ALL",
+                  style: Theme.of(context).textTheme.labelLarge,
+                )
+              ],
+            ),
+
+            Padding(padding: EdgeInsets.all(10),),//space betwee company goals and section below it
+
+            Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.black,
+                        width: 2
+                    )
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.check_circle),
+                            Text("Cybersecurity Teams")
+                          ],
+                        ),
+                        Text(
+                            "Active",
+                          style: TextStyle(
+                            color: Colors.grey.shade500
+                          )
+                        )
+                      ],
+                    ),
+
+                    Padding(padding: EdgeInsets.all(10),),
+
+                    Text(
+                        "Conduct Phishing Simulations Between Companies",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.grey.shade600,
+                      indent: 10,
+                      endIndent: 10,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.access_time_sharp),
+                        Text("Ends in 24 days")
+                      ],
+                    )
+                  ],
+                )
+            )
+          ],
+        )
+    );
+  }
+}
